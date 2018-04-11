@@ -1,19 +1,23 @@
-const express = require('express')
 const fs = require('fs')
+const http = require('http')
 const https = require('https')
 const key = fs.readFileSync('./key.pem')
 const cert = fs.readFileSync('./cert.pem')
-const https_options = {
-    key: key,
-    cert: cert
-};
-const PORT = 80;
-const HOST = 'neko.express';
-const app = express()
+const forceSsl = require('express-force-ssl');
 
-server = https.createServer(https_options, app).listen(PORT, HOST);
-console.log('app online %s:%s', HOST, PORT);
 
+const express = require('express');
+const app = express();
+
+// your express configuration here
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer({key, cert}, app);
+
+httpServer.listen(80);
+httpsServer.listen(443);
+
+app.use(forceSsl);
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(__dirname + '/index.html')
