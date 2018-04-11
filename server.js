@@ -18,7 +18,7 @@ httpsServer.listen(443);
 
 app.use('/.well-known', express.static(path.join(__dirname, '.well-known')))
 
-app.use(forceSsl);
+// app.use(forceSsl);
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(__dirname + '/index.html')
