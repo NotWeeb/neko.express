@@ -11,10 +11,10 @@ const express = require('express');
 const app = express();
 
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer({key, cert}, app);
+//const httpsServer = https.createServer({key, cert}, app);
 
 httpServer.listen(8080);
-httpsServer.listen(443);
+//httpsServer.listen(443);
 
 app.use('/.well-known', express.static(path.join(__dirname, '.well-known')))
 
