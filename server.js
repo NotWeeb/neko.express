@@ -14,4 +14,4 @@ app.get('*', (req, res) => {
   res.status(404).send({error: 'Not Found'})
 })
 
-app.listen(80, () => console.log('app online.'))
+app.listen(80, () => console.log('app online'))
