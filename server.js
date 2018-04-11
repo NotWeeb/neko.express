@@ -9,7 +9,7 @@ const https_options = {
 };
 const PORT = 80;
 const HOST = 'localhost';
-const app = express()
+app = express()
 
 app.configure(function(){
     app.use(app.router);
