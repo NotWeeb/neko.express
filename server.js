@@ -8,7 +8,7 @@ const https_options = {
     cert: cert
 };
 const PORT = 80;
-const HOST = 'localhost';
+const HOST = 'neko.express';
 const app = express()
 
 server = https.createServer(https_options, app).listen(PORT, HOST);
