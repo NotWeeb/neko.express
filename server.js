@@ -1,5 +1,4 @@
 const express = require('express')
-const app = express()
 const fs = require('fs')
 const https = require('https')
 const key = fs.readFileSync('./key.pem')
@@ -10,6 +9,7 @@ const https_options = {
 };
 const PORT = 80;
 const HOST = 'localhost';
+const app = express()
 
 app.configure(function(){
     app.use(app.router);
