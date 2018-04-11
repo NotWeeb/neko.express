@@ -9,11 +9,9 @@ const https_options = {
 };
 const PORT = 80;
 const HOST = 'localhost';
-app = express()
+const app = express()
 
-app.configure(function(){
-    app.use(app.router);
-});
+app.use(app.router);
 
 server = https.createServer(https_options, app).listen(PORT, HOST);
 console.log('app online %s:%s', HOST, PORT);
