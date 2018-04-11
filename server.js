@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
   res.status(200).sendFile(__dirname + '/index.html')
 })
 
+app.get('/logo.png', (req, res) => {
+  res.status(200).sendFile(__dirname + '/logo.png')
+})
+
 app.get('*', (req, res) => {
   res.status(404).send({error: 'Not Found'})
 })
