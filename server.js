@@ -17,6 +17,8 @@ const httpsServer = https.createServer({key, cert}, app);
 httpServer.listen(80);
 httpsServer.listen(443);
 
+app.use(express.static('.well-known'))
+
 app.use(forceSsl);
 
 app.get('/', (req, res) => {
