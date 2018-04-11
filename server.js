@@ -11,8 +11,6 @@ const PORT = 80;
 const HOST = 'localhost';
 const app = express()
 
-app.use(app.router);
-
 server = https.createServer(https_options, app).listen(PORT, HOST);
 console.log('app online %s:%s', HOST, PORT);
 
