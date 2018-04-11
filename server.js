@@ -1,6 +1,23 @@
 const express = require('express')
 const app = express()
 const fs = require('fs')
+const https = require('https')
+const key = fs.readFileSync('./key.pem')
+const cert = fs.readFileSync('./cert.pem')
+const https_options = {
+    key: key,
+    cert: cert
+};
+const PORT = 80;
+const HOST = 'localhost';
+
+app.configure(function(){
+    app.use(app.router);
+});
+
+server = https.createServer(https_options, app).listen(PORT, HOST);
+console.log('app online %s:%s', HOST, PORT);
+
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(__dirname + '/index.html')
@@ -13,5 +30,3 @@ app.get('/logo.png', (req, res) => {
 app.get('*', (req, res) => {
   res.status(404).send({error: 'Not Found'})
 })
-
-app.listen(80, () => console.log('app online'))
