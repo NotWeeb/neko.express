@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
   res.status(200).sendFile(__dirname + '/index.html')
 })
 
-app.get('/logo.png', (req, res) => {
-  res.status(200).sendFile(__dirname + '/logo.png')
+app.get('/yeet.jpg', (req, res) => {
+  res.status(200).sendFile(__dirname + '/yeet.jpg')
 })
 
 app.get('*', (req, res) => {
